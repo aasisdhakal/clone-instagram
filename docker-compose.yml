@@ -1,0 +1,20 @@
+version: '3'
+services:
+  carapi.pv:
+    container_name: carapi.pv
+    image: pagevamp/nginx-php7-fpm:php74
+    restart: always
+    environment:
+      - VIRTUAL_HOST=carapi.pv
+    ports:
+      - "8019:80"
+    volumes:
+      - ./:/var/www
+      - ./docker/sites/default.conf:/etc/nginx/sites-enabled/default
+      - ./docker/sites/php.ini:/etc/php/7.4/fpm/php.ini
+    networks:
+      - pagevamp
+
+networks:
+  pagevamp:
+    external: true
