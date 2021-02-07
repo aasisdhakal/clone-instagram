@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return [
+	    'message' => 'Welcome to Instagram Clone Api',
+	    'version' => 'v1',
+    ];
 });
